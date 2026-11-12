@@ -1,0 +1,17 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies & Caches
+node_modules/
+.npm/
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.bak
