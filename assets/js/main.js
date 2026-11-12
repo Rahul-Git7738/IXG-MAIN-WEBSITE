@@ -49,15 +49,22 @@
     }
   };
 
+  var ticking = false;
   $(window).on("scroll", function () {
-    var distance = 10;
-    var $window = $(window);
-    if ($window.scrollTop() <= distance) {
-      $(".sticky-nav").removeClass("menu_fixed");
-      $(".sticky-nav-2").addClass("menu_fixed");
-    }
-    else {
-      checkScroll();
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        var distance = 10;
+        var $window = $(window);
+        if ($window.scrollTop() <= distance) {
+          $(".sticky-nav").removeClass("menu_fixed");
+          $(".sticky-nav-2").addClass("menu_fixed");
+        }
+        else {
+          checkScroll();
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
   });
 

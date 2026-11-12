@@ -5,7 +5,7 @@ $(function () {
   $('.podcast-auto, .keyword-auto').infiniteslide({
     direction: 'left',
     speed: 40,
-    clone: 15
+    clone: 3
   });
 });
 

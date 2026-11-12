@@ -4,13 +4,15 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 window.addEventListener("load", () => {
   ScrollTrigger.refresh();
 });
-/*  Smooth scroller  */
+/*  Smooth scroller (Optimized for buttery smooth 60fps performance)  */
 const smoother = ScrollSmoother.create({
   wrapper: "#wrapper",
   content: "#content",
-  smooth: 2,
-  speed: 3,
-  effects: true
+  smooth: 1.0,
+  speed: 1,
+  effects: true,
+  smoothTouch: 0.1,
+  normalizeScroll: true
 });
 
 /*  Hero Image  */
