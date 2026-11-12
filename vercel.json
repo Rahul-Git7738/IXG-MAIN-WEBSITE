@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/wall-of-fame", "destination": "/wall-of-fame.html" }
+    { "source": "/wall-of-fame", "destination": "/wall-of-fame.html" },
+    { "source": "/assets/img/gallery/(.*)\\.JPG", "destination": "/assets/img/gallery/$1.jpg" }
   ]
 }
