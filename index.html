@@ -265,12 +265,15 @@
                                     <a href="#insights" class="mobile-menu-item">Insights</a>
                                 </li>
                                 <li>
+                                    <a href="#partner-with-us" class="mobile-menu-item">Partner With Us</a>
+                                </li>
+                                <li>
                                     <a href="#contact" class="mobile-menu-item">Contact</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <a href="#contact" class="nav-btn">
+                    <a href="#partner-with-us" class="nav-btn">
                         <span>Partner With Us</span>
                     </a>
                 </div>
@@ -1300,7 +1303,8 @@
             </section>
 
             <!-- Partner / Engagement section start -->
-            <section class="bl-subscribe-5 ptb-80" id="partnerships">
+            <section class="bl-subscribe-5 ptb-80" id="partner-with-us">
+                <span id="partnerships" style="display:block; position:relative; top:-90px; visibility:hidden;"></span>
                 <div class="container">
                     <div class="bl-title-main title-5">
                         <div>
@@ -1313,7 +1317,7 @@
                     </div>
                     <div class="row g-4">
                         <div class="col-lg-3 col-md-6 col-12">
-                            <a href="#contact" class="partner-action-card">
+                            <a href="#partner-inquiry-form" class="partner-action-card" onclick="selectPartnerTrack('Sponsor Our Summits')">
                                 <div>
                                     <div class="card-icon">
                                         <i class="ri-award-line"></i>
@@ -1325,7 +1329,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 col-12">
-                            <a href="#contact" class="partner-action-card">
+                            <a href="#partner-inquiry-form" class="partner-action-card" onclick="selectPartnerTrack('Speak as a Keynote')">
                                 <div>
                                     <div class="card-icon">
                                         <i class="ri-mic-line"></i>
@@ -1349,7 +1353,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 col-12">
-                            <a href="#contact" class="partner-action-card">
+                            <a href="#partner-inquiry-form" class="partner-action-card" onclick="selectPartnerTrack('Host a Bespoke Summit')">
                                 <div>
                                     <div class="card-icon">
                                         <i class="ri-vip-diamond-line"></i>
@@ -1359,6 +1363,143 @@
                                 </div>
                                 <span class="action-link">Create Custom Event <i class="ri-arrow-right-line"></i></span>
                             </a>
+                        </div>
+                    </div>
+
+                    <!-- Executive Partnership Desk Form Container -->
+                    <div class="partner-collaboration-desk mt-50" id="partner-inquiry-form">
+                        <div class="row g-4 align-items-stretch">
+                            <div class="col-lg-5">
+                                <div class="partner-desk-info h-100">
+                                    <div>
+                                        <div class="desk-badge">
+                                            <i class="ri-shield-star-line"></i> Strategic Collaboration
+                                        </div>
+                                        <h3>Partner with the Leaders of Global Conclaves</h3>
+                                        <p>Influence Exchange Group unites top-tier industry pioneers, policymakers, tech innovators, and institutional investors across the Middle East, GCC, and India.</p>
+                                        
+                                        <div class="desk-highlights">
+                                            <div class="desk-highlight-item">
+                                                <div class="hl-icon"><i class="ri-vip-crown-2-line"></i></div>
+                                                <div>
+                                                    <h5>500+ C-Level Decision Makers</h5>
+                                                    <p>Engage pre-qualified enterprises, government ministers, and sovereign wealth leaders.</p>
+                                                </div>
+                                            </div>
+                                            <div class="desk-highlight-item">
+                                                <div class="hl-icon"><i class="ri-global-line"></i></div>
+                                                <div>
+                                                    <h5>Multi-Region Prestige</h5>
+                                                    <p>Flagship editions across Dubai, Abu Dhabi, Riyadh, and New Delhi.</p>
+                                                </div>
+                                            </div>
+                                            <div class="desk-highlight-item">
+                                                <div class="hl-icon"><i class="ri-rocket-2-line"></i></div>
+                                                <div>
+                                                    <h5>Guaranteed High-ROI Presence</h5>
+                                                    <p>Exclusive keynote slots, private boardroom roundtables, and VIP lounges.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="desk-direct-contact">
+                                        <span class="direct-label">Direct Executive Enquiries:</span>
+                                        <div class="contact-chips">
+                                            <a href="tel:+971565873505" class="contact-chip">
+                                                <i class="ri-phone-line"></i> <span><strong>Dubai HQ:</strong> +971 565873505</span>
+                                            </a>
+                                            <a href="tel:+916364977867" class="contact-chip">
+                                                <i class="ri-phone-line"></i> <span><strong>India Hub:</strong> +91 6364977867</span>
+                                            </a>
+                                            <a href="mailto:contact@influenceexchangegroup.com" class="contact-chip">
+                                                <i class="ri-mail-line"></i> <span>contact@influenceexchangegroup.com</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-7">
+                                <div class="partner-desk-form-box h-100">
+                                    <div class="form-header">
+                                        <h4>Executive Partnership Request</h4>
+                                        <p>Complete the brief below and our Head of Global Partnerships will connect with you within 24 hours.</p>
+                                    </div>
+                                    
+                                    <form id="ixgPartnerForm" onsubmit="handlePartnerSubmit(event)">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pFullName">Full Name <span class="text-danger">*</span></label>
+                                                    <input type="text" id="pFullName" class="form-control partner-input" placeholder="e.g. Alexander Vance" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pWorkEmail">Corporate Email <span class="text-danger">*</span></label>
+                                                    <input type="email" id="pWorkEmail" class="form-control partner-input" placeholder="e.g. name@company.com" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pCompany">Company / Organization <span class="text-danger">*</span></label>
+                                                    <input type="text" id="pCompany" class="form-control partner-input" placeholder="e.g. Emirates Tech Group" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pPhone">Phone / WhatsApp <span class="text-danger">*</span></label>
+                                                    <input type="tel" id="pPhone" class="form-control partner-input" placeholder="e.g. +971 50 123 4567" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pInterest">Partnership Track <span class="text-danger">*</span></label>
+                                                    <select id="pInterest" class="form-select partner-select" required>
+                                                        <option value="Sponsor Our Summits">Sponsor Our Summits (Title / Platinum / Gold)</option>
+                                                        <option value="Speak as a Keynote">Speak as a Keynote / Panelist</option>
+                                                        <option value="Host a Bespoke Summit">Host a Bespoke / Curated Summit</option>
+                                                        <option value="VIP Delegation Access">VIP Executive Delegation</option>
+                                                        <option value="Media & Strategic Alliance">Media & Strategic Alliance</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pRegion">Target Region <span class="text-danger">*</span></label>
+                                                    <select id="pRegion" class="form-select partner-select" required>
+                                                        <option value="Dubai & UAE (GCC)">Dubai & UAE (GCC)</option>
+                                                        <option value="Riyadh & Saudi Arabia (KSA)">Riyadh & Saudi Arabia (KSA)</option>
+                                                        <option value="India (Bangalore / Mumbai / Delhi)">India (Bangalore / Mumbai / Delhi)</option>
+                                                        <option value="Multi-Region / Global">Multi-Region / Global</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="pGoals">Partnership Objectives / Specific Requirements</label>
+                                                    <textarea id="pGoals" rows="3" class="form-control partner-textarea" placeholder="Outline your target audience, preferred summit edition, or sponsorship goals..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" id="partnerSubmitBtn" class="partner-submit-btn w-100">
+                                                    <span>Submit Partnership Request</span>
+                                                    <i class="ri-arrow-right-up-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <!-- Success Feedback Box -->
+                                    <div id="partnerSuccessMsg" class="partner-success-box" style="display: none;">
+                                        <div class="success-icon"><i class="ri-checkbox-circle-fill"></i></div>
+                                        <h4>Partnership Request Received!</h4>
+                                        <p>Thank you for initiating this collaboration with Influence Exchange Group. Our Partnerships Director has received your dossier and will reach out to schedule an executive consultation within 24 hours.</p>
+                                        <button type="button" class="btn btn-sm btn-outline-light mt-2" onclick="resetPartnerForm()">Submit Another Request</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1497,7 +1638,7 @@
                         <p>We redefine executive networking by crafting dynamic platforms for global collaboration, impactful conversations, and industry-shaping partnerships.</p>
                         <div class="btn-sec">
                             <a href="#upcoming-events" class="bl-btn-3">Upcoming Summits</a>
-                            <a href="#contact" class="bl-btn-4">Partner With Us</a>
+                            <a href="#partner-with-us" class="bl-btn-4">Partner With Us</a>
                         </div>
                     </div>
                 </div>

@@ -400,3 +400,59 @@ window.addEventListener("load", function () {
     observer.observe(counter);
   });
 });
+
+
+/* ==========================================================================
+   Partnership Collaboration Desk Handlers
+   ========================================================================== */
+window.selectPartnerTrack = function (track) {
+  const select = document.getElementById('pInterest');
+  if (select) {
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].text.toLowerCase().includes(track.toLowerCase()) || select.options[i].value.toLowerCase().includes(track.toLowerCase())) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  const formBox = document.getElementById('partner-inquiry-form');
+  if (formBox) {
+    if (window.smoother) {
+      window.smoother.scrollTo(formBox, true, "top 80px");
+    } else {
+      formBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+};
+
+window.handlePartnerSubmit = function (e) {
+  e.preventDefault();
+  const form = document.getElementById('ixgPartnerForm');
+  const successBox = document.getElementById('partnerSuccessMsg');
+  const submitBtn = document.getElementById('partnerSubmitBtn');
+  
+  if (submitBtn) {
+    submitBtn.innerHTML = '<span>Submitting Dossier...</span> <i class="ri-loader-4-line ri-spin"></i>';
+    submitBtn.disabled = true;
+  }
+  
+  setTimeout(function() {
+    if (form) form.style.display = 'none';
+    if (successBox) successBox.style.display = 'block';
+  }, 600);
+};
+
+window.resetPartnerForm = function () {
+  const form = document.getElementById('ixgPartnerForm');
+  const successBox = document.getElementById('partnerSuccessMsg');
+  const submitBtn = document.getElementById('partnerSubmitBtn');
+  if (form) {
+    form.reset();
+    form.style.display = 'block';
+  }
+  if (successBox) successBox.style.display = 'none';
+  if (submitBtn) {
+    submitBtn.innerHTML = '<span>Submit Partnership Request</span> <i class="ri-arrow-right-up-line"></i>';
+    submitBtn.disabled = false;
+  }
+};

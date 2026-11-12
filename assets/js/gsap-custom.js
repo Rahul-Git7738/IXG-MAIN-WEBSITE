@@ -14,6 +14,50 @@ const smoother = ScrollSmoother.create({
   smoothTouch: 0.1,
   normalizeScroll: true
 });
+window.smoother = smoother;
+
+/* Smooth in-page anchor navigation with ScrollSmoother */
+document.addEventListener("click", function(e) {
+  const link = e.target.closest('a[href*="#"]');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  if (!href || href === '#' || href.startsWith('javascript:')) return;
+  
+  let targetSelector = null;
+  if (href.startsWith('#')) {
+    targetSelector = href;
+  } else {
+    try {
+      const url = new URL(link.href, window.location.href);
+      if (url.pathname === window.location.pathname && url.hash) {
+        targetSelector = url.hash;
+      }
+    } catch (err) {}
+  }
+  
+  if (targetSelector && targetSelector.length > 1) {
+    const targetEl = document.querySelector(targetSelector);
+    if (targetEl) {
+      e.preventDefault();
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, null, targetSelector);
+      }
+      smoother.scrollTo(targetEl, true, "top 75px");
+    }
+  }
+});
+
+/* Auto-scroll to hash on initial load */
+if (window.location.hash) {
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      const targetEl = document.querySelector(window.location.hash);
+      if (targetEl && window.smoother) {
+        window.smoother.scrollTo(targetEl, true, "top 75px");
+      }
+    }, 350);
+  });
+}
 
 /*  Hero Image  */
 smoother.effects(".hero-image-cont", {
