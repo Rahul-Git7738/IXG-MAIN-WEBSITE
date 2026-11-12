@@ -9,3 +9,4 @@ Disallow: /node_modules/
 # Sitemaps
 Sitemap: https://ixg-main-website.vercel.app/sitemap.xml
 Sitemap: https://influenceexchangegroup.com/sitemap.xml
+
