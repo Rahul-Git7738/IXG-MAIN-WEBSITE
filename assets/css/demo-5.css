@@ -7241,3 +7241,14 @@ Testimonials 4 style
     margin-bottom: 24px;
   }
 }
+
+
+/* Auto-dismiss fallback for preloader (guarantees loader disappears within 900ms) */
+.bl-loader {
+  animation: blLoaderAutoDismiss 0.5s ease-out 0.8s forwards !important;
+}
+@keyframes blLoaderAutoDismiss {
+  0% { opacity: 1; visibility: visible; }
+  99% { opacity: 0; visibility: hidden; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none !important; display: none !important; }
+}

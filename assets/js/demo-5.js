@@ -284,8 +284,11 @@ document.addEventListener("DOMContentLoaded", resizeYoutubeBackground);
 window.addEventListener("load", resizeYoutubeBackground);
 window.addEventListener("resize", resizeYoutubeBackground);
 
-// Load YouTube IFrame Player API dynamically
+// Load YouTube IFrame Player API dynamically (Desktop only to keep mobile ultra-fast)
 (function () {
+  if (window.innerWidth <= 768) {
+    return; // Skip heavy video streaming on mobile phones
+  }
   const tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   const firstScriptTag = document.getElementsByTagName('script')[0];

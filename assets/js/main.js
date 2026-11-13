@@ -2,10 +2,20 @@
 (function ($) {
   "use strict";
 
-  /*  Loader  */
-  $(window).on("load", function () {
-    $(".bl-loader").fadeOut("slow");
+  /*  Loader (Fast & Failsafe dismissal)  */
+  function dismissLoader() {
+    var $loader = $(".bl-loader");
+    if ($loader.length) {
+      $loader.fadeOut(250, function () {
+        $(this).remove();
+      });
+    }
+  }
+  $(document).ready(function () {
+    setTimeout(dismissLoader, 150);
   });
+  $(window).on("load", dismissLoader);
+  setTimeout(dismissLoader, 800);
 
   /*  Stickey headre on scroll &&  Menu Fixed On Scroll Active  */
   var doc = document.documentElement;

@@ -156,6 +156,29 @@
     <div class="bl-loader">
         <span>Influence Exchange Group</span>
     </div>
+    <script>
+        (function() {
+            function removeLoader() {
+                var l = document.querySelector('.bl-loader');
+                if (l && !l.classList.contains('loaded')) {
+                    l.classList.add('loaded');
+                    l.style.transition = 'opacity 0.35s ease, visibility 0.35s ease';
+                    l.style.opacity = '0';
+                    l.style.visibility = 'hidden';
+                    l.style.pointerEvents = 'none';
+                    setTimeout(function() { if (l.parentNode) l.parentNode.removeChild(l); }, 400);
+                }
+            }
+            if (document.readyState === 'interactive' || document.readyState === 'complete') {
+                setTimeout(removeLoader, 100);
+            } else {
+                document.addEventListener('DOMContentLoaded', function() { setTimeout(removeLoader, 200); });
+                window.addEventListener('load', removeLoader);
+            }
+            // Absolute safety failsafe: dismiss loader in max 800ms
+            setTimeout(removeLoader, 800);
+        })();
+    </script>
 
     <!-- Header start -->
     <header class="header-5 sticky-nav">
@@ -1798,7 +1821,6 @@
     <!-- Main JS File  -->
     <script src="assets/js/gsap-custom.js"></script>
     <script src="assets/js/demo-5.js"></script>
-    <script src="assets/js/demo-6.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 

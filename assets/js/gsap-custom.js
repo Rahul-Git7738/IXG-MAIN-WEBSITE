@@ -4,19 +4,24 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 window.addEventListener("load", () => {
   ScrollTrigger.refresh();
 });
-/*  Smooth scroller (Optimized for buttery smooth 60fps performance)  */
-const smoother = ScrollSmoother.create({
-  wrapper: "#wrapper",
-  content: "#content",
-  smooth: 1.0,
-  speed: 1,
-  effects: true,
-  smoothTouch: 0.1,
-  normalizeScroll: true
-});
+/*  Smooth scroller (Desktop smooth, Mobile native 120Hz/60Hz momentum)  */
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth < 992);
+
+let smoother = null;
+if (!isTouchDevice && typeof ScrollSmoother !== "undefined") {
+  smoother = ScrollSmoother.create({
+    wrapper: "#wrapper",
+    content: "#content",
+    smooth: 1.0,
+    speed: 1,
+    effects: true,
+    smoothTouch: false,
+    normalizeScroll: false
+  });
+}
 window.smoother = smoother;
 
-/* Smooth in-page anchor navigation with ScrollSmoother */
+/* Smooth in-page anchor navigation */
 document.addEventListener("click", function(e) {
   const link = e.target.closest('a[href*="#"]');
   if (!link) return;
@@ -42,7 +47,12 @@ document.addEventListener("click", function(e) {
       if (window.history && window.history.pushState) {
         window.history.pushState(null, null, targetSelector);
       }
-      smoother.scrollTo(targetEl, true, "top 75px");
+      if (window.smoother) {
+        window.smoother.scrollTo(targetEl, true, "top 75px");
+      } else {
+        const topPos = targetEl.getBoundingClientRect().top + window.pageYOffset - 75;
+        window.scrollTo({ top: topPos, behavior: "smooth" });
+      }
     }
   }
 });
@@ -52,17 +62,24 @@ if (window.location.hash) {
   window.addEventListener("load", function() {
     setTimeout(function() {
       const targetEl = document.querySelector(window.location.hash);
-      if (targetEl && window.smoother) {
-        window.smoother.scrollTo(targetEl, true, "top 75px");
+      if (targetEl) {
+        if (window.smoother) {
+          window.smoother.scrollTo(targetEl, true, "top 75px");
+        } else {
+          const topPos = targetEl.getBoundingClientRect().top + window.pageYOffset - 75;
+          window.scrollTo({ top: topPos, behavior: "smooth" });
+        }
       }
     }, 350);
   });
 }
 
 /*  Hero Image  */
-smoother.effects(".hero-image-cont", {
-  speed: () => gsap.utils.random(0.55, 0.85, 0.05)
-});
+if (smoother) {
+  smoother.effects(".hero-image-cont", {
+    speed: () => gsap.utils.random(0.55, 0.85, 0.05)
+  });
+}
 
 const elements = document.querySelectorAll(".anim-swipe");
 
