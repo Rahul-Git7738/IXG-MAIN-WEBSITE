@@ -78,5 +78,36 @@ document.addEventListener("DOMContentLoaded", function () {
       protect: true,
     });
   }
-});
 
+  // 4. Mobile Menu Drawer
+  var menuBtn = document.querySelector(".menu-btn");
+  var menuOverlay = document.querySelector(".menu-overlay");
+  var mobileMenu = document.querySelector(".mobile-menu");
+  var closeMenu = document.querySelector(".close-menu");
+
+  if (menuBtn && menuOverlay && mobileMenu) {
+    menuBtn.addEventListener("click", function () {
+      menuOverlay.classList.add("show");
+      mobileMenu.classList.add("open");
+      document.body.classList.add("no-scroll");
+    });
+
+    [closeMenu, menuOverlay].forEach(function (el) {
+      if (el) {
+        el.addEventListener("click", function () {
+          menuOverlay.classList.remove("show");
+          mobileMenu.classList.remove("open");
+          document.body.classList.remove("no-scroll");
+        });
+      }
+    });
+
+    document.querySelectorAll(".mobile-menu .mobile-menu-item").forEach(function (link) {
+      link.addEventListener("click", function () {
+        menuOverlay.classList.remove("show");
+        mobileMenu.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+      });
+    });
+  }
+});

@@ -3497,8 +3497,9 @@ Header 5 style
     margin-bottom: 0;
   }
 
-  .header-5 .navbar .navbar-menu .menu-items {
-    display: none;
+  .header-5 .navbar .navbar-menu .menu-items,
+  .menu-items {
+    display: none !important;
   }
 }
 
@@ -7251,4 +7252,24 @@ Testimonials 4 style
   0% { opacity: 1; visibility: visible; }
   99% { opacity: 0; visibility: hidden; }
   100% { opacity: 0; visibility: hidden; pointer-events: none !important; display: none !important; }
+}
+
+
+/* Mobile Navbar header alignment */
+@media only screen and (max-width: 991px) {
+  .header-5 .navbar {
+    flex-wrap: nowrap !important;
+  }
+  .header-5 .navbar .navbar-menu .menu-items,
+  .menu-items {
+    display: none !important;
+  }
+  .header-5 .navbar .menu-btn {
+    display: flex !important;
+  }
+  .header-5 .navbar .navbar-brand img {
+    height: 42px !important;
+    max-height: 42px !important;
+    width: auto !important;
+  }
 }

@@ -77,6 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.remove("no-scroll");
       });
     });
+
+    // Close mobile drawer when any link inside is clicked
+    document.querySelectorAll(".mobile-menu .mobile-menu-item").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuOverlay.classList.remove("show");
+        menuItems.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+      });
+    });
   }
 });
 
