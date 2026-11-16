@@ -2,20 +2,19 @@
 (function ($) {
   "use strict";
 
-  /*  Loader (Fast & Failsafe dismissal)  */
-  function dismissLoader() {
+  /*  Loader (Displays until loaded, smooth fade-out within 2 to 3s)  */
+  function dismissMainLoader() {
     var $loader = $(".bl-loader");
-    if ($loader.length) {
-      $loader.fadeOut(250, function () {
+    if ($loader.length && !$loader.hasClass('dismissed')) {
+      $loader.addClass('dismissed').fadeOut(400, function () {
         $(this).remove();
       });
     }
   }
-  $(document).ready(function () {
-    setTimeout(dismissLoader, 150);
+  $(window).on("load", function() {
+    setTimeout(dismissMainLoader, 300);
   });
-  $(window).on("load", dismissLoader);
-  setTimeout(dismissLoader, 800);
+  setTimeout(dismissMainLoader, 2600);
 
   /*  Stickey headre on scroll &&  Menu Fixed On Scroll Active  */
   var doc = document.documentElement;

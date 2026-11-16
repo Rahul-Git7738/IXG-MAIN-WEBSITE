@@ -158,25 +158,38 @@
     </div>
     <script>
         (function() {
-            function removeLoader() {
+            var startTime = Date.now();
+            var minDisplayTime = 1200; // 1.2s to show premium branding
+            var maxDisplayTime = 2600; // 2.6s hard maximum (under 3s requirement)
+
+            function dismissLoader() {
                 var l = document.querySelector('.bl-loader');
-                if (l && !l.classList.contains('loaded')) {
+                if (!l || l.classList.contains('loaded')) return;
+                var elapsed = Date.now() - startTime;
+                var remaining = Math.max(0, minDisplayTime - elapsed);
+
+                setTimeout(function() {
                     l.classList.add('loaded');
-                    l.style.transition = 'opacity 0.35s ease, visibility 0.35s ease';
+                    l.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
                     l.style.opacity = '0';
                     l.style.visibility = 'hidden';
                     l.style.pointerEvents = 'none';
-                    setTimeout(function() { if (l.parentNode) l.parentNode.removeChild(l); }, 400);
-                }
+                    setTimeout(function() {
+                        if (l && l.parentNode) l.parentNode.removeChild(l);
+                    }, 550);
+                }, remaining);
             }
-            if (document.readyState === 'interactive' || document.readyState === 'complete') {
-                setTimeout(removeLoader, 100);
+
+            if (document.readyState === 'complete') {
+                dismissLoader();
             } else {
-                document.addEventListener('DOMContentLoaded', function() { setTimeout(removeLoader, 200); });
-                window.addEventListener('load', removeLoader);
+                window.addEventListener('load', dismissLoader);
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(dismissLoader, 1400);
+                });
             }
-            // Absolute safety failsafe: dismiss loader in max 800ms
-            setTimeout(removeLoader, 800);
+            // Absolute failsafe: guarantees loader dismisses within 2.6 seconds
+            setTimeout(dismissLoader, maxDisplayTime);
         })();
     </script>
 
@@ -207,37 +220,37 @@
                                     <div class="row row-cols-xl-6 g-4 justify-content-center">
                                         <div><a class="menu-box" href="https://talentacquisitionsummit.com/" target="_blank"><img
                                                     alt="Talent Acquisition" class="img-fluid"
-                                                    src="https://influenceexchangegroup.com/wp-content/uploads/2026/04/TalentAcquisition.png"
+                                                    src="assets/img/summits/TalentAcquisition.png"
                                                     decoding="async" loading="lazy">
                                                 <h4>Talent Acquisition</h4>
                                             </a></div>
                                         <div><a class="menu-box" href="https://india.futurehrld.com/delhi/" target="_blank"><img
                                                     alt="HR&LND - Delhi" class="img-fluid"
-                                                    src="https://influenceexchangegroup.com/wp-content/uploads/2026/04/7th-ed-HR-Delhi.png"
+                                                    src="assets/img/summits/7th-ed-HR-Delhi.png"
                                                     decoding="async" loading="lazy">
                                                 <h4>HR&amp;LND - Delhi</h4>
                                             </a></div>
                                         <div><a class="menu-box" href="https://globaldevopsummit.com/" target="_blank"><img alt="Devops"
                                                     class="img-fluid"
-                                                    src="https://influenceexchangegroup.com/wp-content/uploads/2026/04/Global-Devops-Blore.png"
+                                                    src="assets/img/summits/Global-Devops-Blore.png"
                                                     decoding="async" loading="lazy">
                                                 <h4>Global DevOps</h4>
                                             </a></div>
                                         <div><a class="menu-box" href="https://uae.futurehrld.com/" target="_blank"><img alt="HR&LND - Dubai"
                                                     class="img-fluid"
-                                                    src="https://influenceexchangegroup.com/wp-content/uploads/2026/04/8th-ed-HR-Dubai-web-banner-768x628.png"
+                                                    src="assets/img/summits/8th-ed-HR-Dubai-web-banner-768x628.png"
                                                     decoding="async" loading="lazy">
                                                 <h4>HR&amp;LND - Dubai</h4>
                                             </a></div>
                                         <div><a class="menu-box" href="https://india.futurehrld.com/bangalore/" target="_blank"><img
                                                     alt="HR&LND - Bengaluru" class="img-fluid"
-                                                    src="https://influenceexchangegroup.com/wp-content/uploads/2026/05/9th-ed-HR-Bangalore.png"
+                                                    src="assets/img/summits/9th-ed-HR-Bangalore.png"
                                                     decoding="async" loading="lazy">
                                                 <h4>HR&amp;LND - Bengaluru</h4>
                                             </a></div>
                                         <div><a class="menu-box" href="https://cybershieldsummit.com/bangalore/" target="_blank"><img
                                                     alt="Cybershield" class="img-fluid"
-                                                    src="https://influenceexchangegroup.com/wp-content/uploads/2026/06/2nd-Cybershield-Web-Banner-768x628.png"
+                                                    src="assets/img/summits/2nd-Cybershield-Web-Banner-768x628.png"
                                                     decoding="async" loading="lazy">
                                                 <h4>CyberShield</h4>
                                             </a></div>
@@ -705,7 +718,7 @@
                                     <!-- Slide 6 -->
                                     <div class="swiper-slide">
                                         <a href="https://cybershieldsummit.com/bangalore/" target="_blank" class="ixg-event-card">
-                                            <div class="card-bg-layer" style="background-image: url('https://influenceexchangegroup.com/wp-content/uploads/2026/06/2nd-Cybershield-Web-Banner-768x628.png');"></div>
+                                            <div class="card-bg-layer" style="background-image: url('assets/img/summits/2nd-Cybershield-Web-Banner-768x628.png');"></div>
                                             <div class="card-overlay"></div>
                                             <div class="card-glow"></div>
                                             <div class="card-inner">

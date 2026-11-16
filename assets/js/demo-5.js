@@ -274,18 +274,24 @@ document.addEventListener("DOMContentLoaded", function () {
 /* YouTube Background Video Responsiveness Sizing */
 function resizeYoutubeBackground() {
   const iframe = document.querySelector('#yt-bg-player');
+  const container = document.querySelector('.video-bg-container');
   if (!iframe) return;
 
-  const containerWidth = window.innerWidth;
-  const containerHeight = window.innerHeight;
+  const w = window.innerWidth;
+  const h = window.innerHeight;
   const aspectRatio = 16 / 9;
 
-  // Scale dimensions to always cover the viewport (behaves like background-size: cover)
-  const newWidth = Math.max(containerWidth, containerHeight * aspectRatio);
-  const newHeight = newWidth / aspectRatio;
+  let newWidth, newHeight;
+  if (w / h > aspectRatio) {
+    newWidth = w;
+    newHeight = w / aspectRatio;
+  } else {
+    newHeight = h;
+    newWidth = h * aspectRatio;
+  }
 
-  iframe.style.width = `${newWidth}px`;
-  iframe.style.height = `${newHeight}px`;
+  iframe.style.width = Math.ceil(newWidth) + 'px';
+  iframe.style.height = Math.ceil(newHeight) + 'px';
 }
 
 // Bind load, DOMContentLoaded, and resize events to keep size up to date
@@ -293,11 +299,8 @@ document.addEventListener("DOMContentLoaded", resizeYoutubeBackground);
 window.addEventListener("load", resizeYoutubeBackground);
 window.addEventListener("resize", resizeYoutubeBackground);
 
-// Load YouTube IFrame Player API dynamically (Desktop only to keep mobile ultra-fast)
+// Load YouTube IFrame Player API dynamically (Mobile & Desktop responsive)
 (function () {
-  if (window.innerWidth <= 768) {
-    return; // Skip heavy video streaming on mobile phones
-  }
   const tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   const firstScriptTag = document.getElementsByTagName('script')[0];
