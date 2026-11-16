@@ -346,21 +346,22 @@ function onPlayerStateChange(event) {
   }
 }
 
-/* Rolling Statistics Counter JS */
-window.addEventListener("load", function () {
+/* Rolling Statistics Counter JS (Fast & Snappy 1.2s - 1.5s Roll) */
+function initRollingCounters() {
   const counters = document.querySelectorAll(".count-num");
   if (!counters.length) return;
 
   const observerOptions = {
     root: null,
-    rootMargin: "0px",
-    threshold: 0.5
+    rootMargin: "80px",
+    threshold: 0.1
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const targetStr = entry.target.getAttribute("data-target");
+        if (!targetStr) return;
 
         // Setup DOM for rolling
         entry.target.innerHTML = '';
@@ -368,7 +369,7 @@ window.addEventListener("load", function () {
         entry.target.style.overflow = 'hidden';
         entry.target.style.lineHeight = '1';
         entry.target.style.verticalAlign = 'bottom';
-        entry.target.style.height = '1em'; // Ensure it only shows one digit at a time
+        entry.target.style.height = '1em';
 
         const chars = targetStr.split('');
 
@@ -378,31 +379,26 @@ window.addEventListener("load", function () {
 
           const inner = document.createElement('span');
           inner.style.display = 'block';
-          // Delay each digit slightly for a nice staggered effect, making it slower overall
-          inner.style.transition = `transform ${3.0 + (index * 0.6)}s cubic-bezier(0.2, 0.8, 0.2, 1)`;
+          // Fast, snappy, crisp rolling transition
+          inner.style.transition = `transform ${1.1 + (index * 0.12)}s cubic-bezier(0.16, 1, 0.3, 1)`;
 
           let html = '';
-          // Two sets of 0-9 for a good rolling effect
           for (let i = 0; i <= 9; i++) {
             html += `<span style="display:block; height: 1em;">${i}</span>`;
           }
           for (let i = 0; i <= 9; i++) {
             html += `<span style="display:block; height: 1em;">${i}</span>`;
           }
-          // The target digit
           html += `<span style="display:block; height: 1em;">${char}</span>`;
 
           inner.innerHTML = html;
           digit.appendChild(inner);
           entry.target.appendChild(digit);
 
-          // Trigger the animation
-          // total spans = 21. index of target is 20.
           requestAnimationFrame(() => {
-            // Need a slight delay to ensure transition applies
             setTimeout(() => {
               inner.style.transform = `translateY(-${(20 / 21) * 100}%)`;
-            }, 50);
+            }, 30);
           });
         });
 
@@ -414,7 +410,13 @@ window.addEventListener("load", function () {
   counters.forEach(counter => {
     observer.observe(counter);
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRollingCounters);
+} else {
+  initRollingCounters();
+}
 
 
 /* ==========================================================================

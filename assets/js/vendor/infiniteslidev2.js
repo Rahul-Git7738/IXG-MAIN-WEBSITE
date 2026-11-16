@@ -168,9 +168,10 @@ https://github.com/woodroots/infiniteslidev2
 					}
 				};
 
-				if (window.loaded) {
+				if (document.readyState === 'complete' || document.readyState === 'interactive') {
 					_onload();
 				} else {
+					$(document).ready(_onload);
 					$(window).on('load', _onload);
 				}
 			});
