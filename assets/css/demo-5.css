@@ -7479,3 +7479,13 @@ body {
     font-size: 16px !important;
   }
 }
+
+
+/* Wall of Fame Hero Pill Button - Crisp White Text */
+a[href="wall-of-fame.html"].nav-btn,
+a[href="wall-of-fame.html"].nav-btn *,
+a[href="wall-of-fame.html"].nav-btn:hover,
+a[href="wall-of-fame.html"].nav-btn:hover * {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
