@@ -7373,3 +7373,109 @@ body {
     height: 220px !important;
   }
 }
+
+
+/* ==========================================================================
+   Footer Bottom Social Media Icons - Single Line Layout (Mobile & Desktop)
+   ========================================================================== */
+.bl-footer-5 .footer-bottom-content .social-footer {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 16px !important;
+}
+
+.bl-footer-5 .footer-bottom-content .social-footer li {
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+}
+
+.bl-footer-5 .footer-bottom-content .social-footer li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .bl-footer-5 .footer-bottom-content .copy {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 18px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .bl-footer-5 .footer-bottom-content .copy p {
+    text-align: center !important;
+    font-size: 13.5px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .bl-footer-5 .footer-bottom-content .social-footer {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+
+  .bl-footer-5 .footer-bottom-content .social-footer li {
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .bl-footer-5 .footer-bottom-content .social-footer li a {
+    font-size: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .bl-footer-5 .footer-bottom-content .social-footer li a i {
+    font-size: 18px !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  .bl-footer-5 .footer-bottom-content .social-footer li a:hover,
+  .bl-footer-5 .footer-bottom-content .social-footer li a:active {
+    background: linear-gradient(135deg, #c43c65, #ff5a8d) !important;
+    border-color: #ff5a8d !important;
+    transform: translateY(-2px);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .bl-footer-5 .footer-bottom-content .social-footer {
+    gap: 10px !important;
+  }
+  .bl-footer-5 .footer-bottom-content .social-footer li a {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .bl-footer-5 .footer-bottom-content .social-footer li a i {
+    font-size: 16px !important;
+  }
+}
