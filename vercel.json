@@ -2,7 +2,17 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+    { "source": "/about-us", "destination": "/about-us.html" },
+    { "source": "/about", "destination": "/about-us.html" },
+    { "source": "/upcoming-events", "destination": "/upcoming-events.html" },
+    { "source": "/our-expertise", "destination": "/our-expertise.html" },
+    { "source": "/expertise", "destination": "/our-expertise.html" },
     { "source": "/wall-of-fame", "destination": "/wall-of-fame.html" },
+    { "source": "/insights", "destination": "/insights.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/contact-us", "destination": "/contact.html" },
+    { "source": "/partner-with-us", "destination": "/partner-with-us.html" },
+    { "source": "/partner", "destination": "/partner-with-us.html" },
     { "source": "/assets/img/gallery/(.*)\\.JPG", "destination": "/assets/img/gallery/$1.jpg" }
   ]
 }
