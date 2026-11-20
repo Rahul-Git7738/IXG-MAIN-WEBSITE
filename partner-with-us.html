@@ -15,7 +15,7 @@
     <!-- CSS Links -->
     <link rel="stylesheet" type="text/css" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/vendor/remixicon.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/vendor/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/vendor/jquery.fancybox.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/demo-5.css">
@@ -261,96 +261,81 @@
                         </div>
 
                         <div class="col-lg-7">
-                            <div class="partner-desk-form-wrap">
+                            <div class="partner-desk-form-box h-100">
                                 <div class="form-header">
-                                    <div class="form-header-badge"><i class="ri-send-plane-fill"></i> Fast Track</div>
                                     <h4>Executive Partnership Request</h4>
                                     <p>Complete the brief below and our Head of Global Partnerships will connect with you within 24 hours.</p>
                                 </div>
 
-                                <form id="partnerRequestForm" onsubmit="event.preventDefault(); document.getElementById('partnerFormSuccessBox').classList.remove('d-none'); document.getElementById('partnerFormBody').classList.add('d-none');">
-                                    <div id="partnerFormBody">
+                                <form id="partnerRequestForm" onsubmit="event.preventDefault(); document.getElementById('partnerSuccessMsg').style.display='block'; document.getElementById('partnerFormFields').style.display='none';">
+                                    <div id="partnerFormFields">
                                         <div class="row g-3">
                                             <div class="col-md-6">
-                                                <div class="form-floating-custom">
-                                                    <label>Full Name *</label>
-                                                    <input type="text" class="custom-input" placeholder="e.g., Tariq Al-Mansoor" required>
+                                                <div class="form-group">
+                                                    <label>Full Name <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control partner-input" placeholder="e.g. Tariq Al-Mansoor" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-floating-custom">
-                                                    <label>Corporate Email *</label>
-                                                    <input type="email" class="custom-input" placeholder="tariq@enterprise.com" required>
+                                                <div class="form-group">
+                                                    <label>Corporate Email <span class="text-danger">*</span></label>
+                                                    <input type="email" class="form-control partner-input" placeholder="tariq@enterprise.com" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-floating-custom">
-                                                    <label>Phone / WhatsApp *</label>
-                                                    <input type="tel" class="custom-input" placeholder="+971 50 123 4567" required>
+                                                <div class="form-group">
+                                                    <label>Phone / WhatsApp <span class="text-danger">*</span></label>
+                                                    <input type="tel" class="form-control partner-input" placeholder="+971 50 123 4567" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-floating-custom">
-                                                    <label>Organization / Company *</label>
-                                                    <input type="text" class="custom-input" placeholder="e.g., Global Enterprise Group" required>
+                                                <div class="form-group">
+                                                    <label>Company / Organization <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control partner-input" placeholder="e.g. Emirates Tech Group" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-floating-custom">
-                                                    <label>Your Title / Designation *</label>
-                                                    <input type="text" class="custom-input" placeholder="e.g., Chief Marketing Officer" required>
+                                                <div class="form-group">
+                                                    <label>Partnership Track <span class="text-danger">*</span></label>
+                                                    <select class="form-select partner-select" id="partnerTrackSelect" required>
+                                                        <option value="Sponsor Our Summits">Sponsor Our Summits (Title / Platinum / Gold)</option>
+                                                        <option value="Speak as a Keynote">Speak as a Keynote / Panelist</option>
+                                                        <option value="Host a Bespoke Summit">Host a Bespoke / Curated Summit</option>
+                                                        <option value="Attend as a Delegate">VIP Executive Delegation</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-floating-custom">
-                                                    <label>Partnership Track *</label>
-                                                    <select class="custom-input" id="partnerTrackSelect" required>
-                                                        <option value="">Select Partnership Track</option>
-                                                        <option value="Sponsor Our Summits">Summit Sponsorship &amp; Exhibition</option>
-                                                        <option value="Speak as a Keynote">Keynote / Panel Thought Leadership</option>
-                                                        <option value="Host a Bespoke Summit">Host a Custom Bespoke Summit</option>
-                                                        <option value="Attend as a Delegate">Executive VIP Delegation</option>
+                                                <div class="form-group">
+                                                    <label>Target Region <span class="text-danger">*</span></label>
+                                                    <select class="form-select partner-select" required>
+                                                        <option value="Dubai & UAE (GCC)">Dubai & UAE (GCC)</option>
+                                                        <option value="Riyadh & Saudi Arabia (KSA)">Riyadh & Saudi Arabia (KSA)</option>
+                                                        <option value="India (Bangalore / Delhi)">India (Bangalore / Delhi)</option>
+                                                        <option value="Multi-Region / Global">Multi-Region / Global</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="form-floating-custom">
-                                                    <label>Target Summit(s) of Interest</label>
-                                                    <select class="custom-input">
-                                                        <option value="All Summits">All Summits 2026 Portfolio</option>
-                                                        <option value="Future HR &amp; L&amp;D Summit (Dubai)">Future HR &amp; L&amp;D Summit (Dubai)</option>
-                                                        <option value="Future HR &amp; L&amp;D Summit (Delhi / Bengaluru)">Future HR &amp; L&amp;D Summit (Delhi / Bengaluru)</option>
-                                                        <option value="Global DevOps Summit (Bengaluru)">Global DevOps Summit (Bengaluru)</option>
-                                                        <option value="CyberShield Summit (Bengaluru)">CyberShield Summit (Bengaluru)</option>
-                                                        <option value="Talent Acquisition Summit (Delhi)">Talent Acquisition Summit (Delhi)</option>
-                                                        <option value="Custom Bespoke Event">Custom Bespoke Event</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating-custom">
+                                                <div class="form-group">
                                                     <label>Partnership Objectives / Notes</label>
-                                                    <textarea class="custom-input custom-textarea" rows="3" placeholder="Tell us about your brand goals, target delegate profile, or bespoke event concept..."></textarea>
+                                                    <textarea rows="3" class="form-control partner-textarea" placeholder="Tell us about your brand goals, target delegate profile, or bespoke event concept..."></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-12 mt-4">
-                                                <button type="submit" class="submit-partner-btn">
+                                            <div class="col-12 mt-3">
+                                                <button type="submit" class="partner-submit-btn w-100">
                                                     <span>Submit Partnership Request</span>
-                                                    <i class="ri-arrow-right-line"></i>
+                                                    <i class="ri-arrow-right-up-line"></i>
                                                 </button>
-                                                <div class="privacy-note mt-2">
-                                                    <i class="ri-lock-line"></i> Your corporate dossier is strictly confidential under enterprise NDA standards.
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div id="partnerFormSuccessBox" class="form-success-state d-none text-center py-5">
-                                        <div class="success-icon mb-3">
-                                            <i class="ri-checkbox-circle-fill" style="color: #2ecc71; font-size: 54px;"></i>
-                                        </div>
-                                        <h4 class="text-white">Partnership Request Received!</h4>
-                                        <p class="text-white-50">Thank you for initiating this collaboration with Influence Exchange Group. Our Partnerships Director has received your dossier and will reach out to schedule an executive consultation within 24 hours.</p>
+                                    <div id="partnerSuccessMsg" class="partner-success-box" style="display: none;">
+                                        <div class="success-icon"><i class="ri-checkbox-circle-fill"></i></div>
+                                        <h4>Partnership Request Received!</h4>
+                                        <p>Thank you for initiating this collaboration with Influence Exchange Group. Our Partnerships Director has received your dossier and will reach out to schedule an executive consultation within 24 hours.</p>
+                                        <button type="button" class="btn btn-sm btn-outline-light mt-2" onclick="document.getElementById('partnerSuccessMsg').style.display='none'; document.getElementById('partnerFormFields').style.display='block';">Submit Another Request</button>
                                     </div>
                                 </form>
                             </div>
@@ -361,72 +346,69 @@
             </div>
         </section>
 
-        <!-- Footer start -->
-        <footer class="footer-5">
-            <div class="footer-top-5">
-                <div class="container">
-                    <div class="row g-4 justify-content-between">
-                        <div class="col-lg-4 col-md-12">
-                            <div class="footer-brand">
-                                <a href="demo-5.html" class="d-inline-block mb-3">
-                                    <img src="assets/img/logo-5.png" class="img-fluid" alt="IXG Logo"
-                                        style="width: 140px; height: auto; object-fit: contain;" loading="lazy" decoding="async">
-                                </a>
-                                <p class="text-white-50 pe-lg-4 mb-4">
-                                    Influence Exchange Group (IXG) is a premier global conference curation and executive conclave firm connecting C-suite leaders across MENA, India, and global markets.
-                                </p>
-                            </div>
+                <!-- Footer start -->
+        <footer class="bl-footer-5 pt-80" id="contact">
+            <h3 class="d-none">Footer</h3>
+            <div class="container">
+                <div class="row g-4 mb-50">
+                    <div class="col-lg-4 col-md-6">
+                        <a href="demo-5.html" class="logo-sec">
+                            <img src="assets/img/logo-5.png" class="img-fluid" alt="Influence Exchange Group"
+                                decoding="async" loading="lazy">
+                        </a>
+                        <p class="detail">
+                            Influence Exchange Group (IXG) is a premier global conference curation and executive conclave firm connecting C-suite leaders across MENA, India, and global markets.
+                        </p>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <div class="footer-links">
+                            <h4 class="footer-title">Navigation</h4>
+                            <ul class="footer-content">
+                                <li><a href="demo-5.html">Home</a></li>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="upcoming-events.html">Upcoming Events</a></li>
+                                <li><a href="our-expertise.html">Our Expertise</a></li>
+                                <li><a href="wall-of-fame.html">Wall of Fame</a></li>
+                                <li><a href="insights.html">Insights</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-2 col-md-3 col-6">
-                            <div class="footer-links">
-                                <h4 class="footer-title">Navigation</h4>
-                                <ul class="footer-content">
-                                    <li><a href="demo-5.html">Home</a></li>
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="upcoming-events.html">Upcoming Events</a></li>
-                                    <li><a href="our-expertise.html">Our Expertise</a></li>
-                                    <li><a href="wall-of-fame.html">Wall of Fame</a></li>
-                                    <li><a href="insights.html">Insights</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <div class="footer-links">
+                            <h4 class="footer-title">Expertise</h4>
+                            <ul class="footer-content">
+                                <li><a href="our-expertise.html#conference-curation">Conference Curation</a></li>
+                                <li><a href="our-expertise.html#conclave-organization">Conclave Organization</a></li>
+                                <li><a href="our-expertise.html#exhibition-management">Exhibition Management</a></li>
+                                <li><a href="our-expertise.html#c-suite-summits">C-Suite Summits</a></li>
+                                <li><a href="partner-with-us.html">Bespoke Summits</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-2 col-md-3 col-6">
-                            <div class="footer-links">
-                                <h4 class="footer-title">Expertise</h4>
-                                <ul class="footer-content">
-                                    <li><a href="our-expertise.html#conference-curation">Conference Curation</a></li>
-                                    <li><a href="our-expertise.html#conclave-organization">Conclave Organization</a></li>
-                                    <li><a href="our-expertise.html#exhibition-management">Exhibition Management</a></li>
-                                    <li><a href="our-expertise.html#c-suite-summits">C-Suite Summits</a></li>
-                                    <li><a href="partner-with-us.html">Bespoke Summits</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="footer-contact">
-                                <h4 class="footer-title">Global Offices</h4>
-                                <ul class="footer-content list-unstyled">
-                                    <li class="mb-3">
-                                        <div class="footer-office-badge"><i class="ri-building-line"></i> Dubai HQ</div>
-                                        <p class="mb-0 text-white-50">Office No. 9B, Level 9, Rolex Tower, Sheikh Zayed Road, Dubai, UAE</p>
-                                    </li>
-                                    <li class="mb-3">
-                                        <div class="footer-office-badge"><i class="ri-building-line"></i> India Operations Hub</div>
-                                        <p class="mb-0 text-white-50">Second Floor, A V Arcade, near Matrix Honda, Kunjibettu, Manipal, Udupi, Karnataka – 576102</p>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="ri-mail-line text-danger me-2"></i>
-                                        <a href="mailto:contact@influenceexchangegroup.com" class="text-white-50">contact@influenceexchangegroup.com</a>
-                                    </li>
-                                    <li>
-                                        <i class="ri-phone-line text-danger me-2"></i>
-                                        <a href="tel:+971565873505" class="text-white-50">+971 565873505</a>
-                                        <span class="mx-2 text-white-50">|</span>
-                                        <a href="tel:+916364977867" class="text-white-50">+91 6364977867</a>
-                                    </li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-contact">
+                            <h4 class="footer-title">Global Offices</h4>
+                            <ul class="footer-content">
+                                <li class="mb-3">
+                                    <div class="footer-office-badge"><i class="ri-building-line"></i> Dubai HQ</div>
+                                    <p class="mb-0 text-white-50">Office No. 9B, Level 9, Rolex Tower, Sheikh Zayed Road, Dubai, UAE</p>
+                                </li>
+                                <li class="mb-3">
+                                    <div class="footer-office-badge"><i class="ri-building-line"></i> India Operations Hub</div>
+                                    <p class="mb-0 text-white-50">Second Floor, A V Arcade, near Matrix Honda, Kunjibettu, Manipal, Udupi, Karnataka – 576102</p>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="ri-mail-line text-danger me-2"></i>
+                                    <a href="mailto:contact@influenceexchangegroup.com" class="text-white-50">contact@influenceexchangegroup.com</a>
+                                </li>
+                                <li>
+                                    <i class="ri-phone-line text-danger me-2"></i>
+                                    <a href="tel:+971565873505" class="text-white-50">+971 565873505</a>
+                                    <span class="mx-2 text-white-50">|</span>
+                                    <a href="tel:+916364977867" class="text-white-50">+91 6364977867</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -449,10 +431,41 @@
 
     </div>
 
-    <!-- Core Scripts -->
+            <!-- Tab to top -->
+    <a href="#Top" class="back-to-top result-placeholder">
+        <i class="ri-arrow-up-line"></i>
+        <div class="back-to-top-wrap active-progress">
+            <svg viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+    </a>
+
+<!-- Core Scripts -->
     <script src="assets/js/vendor/jquery-4.0.0.min.js"></script>
+    <script>
+        jQuery.isArray = Array.isArray;
+        jQuery.type = function (obj) {
+            if (obj == null) return String(obj);
+            var class2type = {};
+            "Boolean Number String Function Array Date RegExp Object Error Symbol".split(" ").forEach(function (name) {
+                class2type["[object " + name + "]"] = name.toLowerCase();
+            });
+            return typeof obj === "object" || typeof obj === "function"
+                ? class2type[Object.prototype.toString.call(obj)] || "object"
+                : typeof obj;
+        };
+        jQuery.isFunction = function (obj) { return typeof obj === "function"; };
+        jQuery.isWindow = function (obj) { return obj != null && obj === obj.window; };
+        jQuery.isNumeric = function (obj) {
+            var type = typeof obj;
+            return (type === "number" || type === "string") && !isNaN(obj - parseFloat(obj));
+        };
+        jQuery.now = Date.now;
+        jQuery.trim = function (text) { return text == null ? "" : String.prototype.trim.call(text); };
+    </script>
     <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
