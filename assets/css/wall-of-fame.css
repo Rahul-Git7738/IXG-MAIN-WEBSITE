@@ -577,3 +577,42 @@ body.wall-of-fame-page::before {
   color: #ffffff;
 }
 
+
+/* Breadcrumb & Pill Alignment for Wall of Fame */
+.subpage-breadcrumb {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.subpage-breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.subpage-breadcrumb a:hover {
+  color: #ff5a8d;
+}
+
+.subpage-breadcrumb .separator {
+  color: #c43c65;
+  font-size: 11px;
+}
+
+.subpage-tag-pill-wrap {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.subpage-tag-pill-wrap .fame-tag-pill {
+  margin-bottom: 0 !important;
+}

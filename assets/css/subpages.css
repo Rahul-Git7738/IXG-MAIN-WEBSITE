@@ -43,12 +43,22 @@ body.ixg-subpage::before {
 }
 
 .subpage-breadcrumb {
-  display: inline-flex;
+  display: flex !important;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: 13.5px;
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.subpage-tag-pill-wrap {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 22px;
 }
 
 .subpage-breadcrumb a {
@@ -487,4 +497,8 @@ body.ixg-subpage::before {
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(255, 90, 141, 0.45);
+}
+
+.subpage-tag-pill-wrap .subpage-tag-pill {
+  margin-bottom: 0 !important;
 }
