@@ -391,6 +391,93 @@ body.ixg-subpage::before {
 }
 
 /* ==========================================================================
+   Corporate Action Buttons (Primary & Secondary CTA)
+   ========================================================================== */
+.corporate-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #c43c65, #ff5a8d);
+  border: 1px solid transparent;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 20px rgba(196, 60, 101, 0.35);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.corporate-btn-primary:hover {
+  background: linear-gradient(135deg, #d84572, #ff719e);
+  box-shadow: 0 8px 28px rgba(255, 90, 141, 0.55);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.corporate-btn-primary span,
+.corporate-btn-primary i,
+.corporate-btn-primary:hover span,
+.corporate-btn-primary:hover i {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.corporate-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.corporate-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 90, 141, 0.6);
+  box-shadow: 0 8px 26px rgba(196, 60, 101, 0.3);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.corporate-btn-secondary span,
+.corporate-btn-secondary i,
+.corporate-btn-secondary:hover span,
+.corporate-btn-secondary:hover i {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 575px) {
+  .corporate-btn-primary,
+  .corporate-btn-secondary {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================================
    Contact & Location Cards
    ========================================================================== */
 .contact-hub-card {
