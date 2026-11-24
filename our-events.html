@@ -138,29 +138,30 @@
         <section class="ptb-80">
             <div class="container">
 
-                <!-- Master Events Toolbar Row -->
-                <div class="events-toolbar-wrap mb-5">
-                    <div class="row align-items-center g-3">
-                        <div class="col-xl-7 col-lg-7 col-12">
-                            <div class="events-master-tab-bar">
-                                <button class="events-master-tab-btn active" data-tab="all" onclick="setEventsTab('all')">
-                                    <i class="ri-apps-2-line"></i> All Events (12)
-                                </button>
-                                <button class="events-master-tab-btn" data-tab="upcoming" onclick="setEventsTab('upcoming')">
-                                    <i class="ri-calendar-event-line"></i> Upcoming Events (6)
-                                </button>
-                                <button class="events-master-tab-btn" data-tab="past" onclick="setEventsTab('past')">
-                                    <i class="ri-history-line"></i> Past Events Archive (6)
-                                </button>
-                            </div>
+                <!-- Master Events Toolbar: Stacked Up & Down -->
+                <div class="events-toolbar-wrap text-center mb-5">
+                    <!-- 1. UP: Master Switcher Tabs -->
+                    <div class="d-flex justify-content-center mb-3 pb-1">
+                        <div class="events-master-tab-bar">
+                            <button class="events-master-tab-btn active" data-tab="all" onclick="setEventsTab('all')">
+                                <i class="ri-apps-2-line"></i> All Events (12)
+                            </button>
+                            <button class="events-master-tab-btn" data-tab="upcoming" onclick="setEventsTab('upcoming')">
+                                <i class="ri-calendar-event-line"></i> Upcoming Events (6)
+                            </button>
+                            <button class="events-master-tab-btn" data-tab="past" onclick="setEventsTab('past')">
+                                <i class="ri-history-line"></i> Past Events Archive (6)
+                            </button>
                         </div>
-                        <div class="col-xl-5 col-lg-5 col-12 text-lg-end text-start">
-                            <div class="event-filter-nav d-inline-flex m-0" id="upcomingCategoryFilter">
-                                <button class="event-filter-btn active" data-filter="all">All (6)</button>
-                                <button class="event-filter-btn" data-filter="hr">HR &amp; Talent (4)</button>
-                                <button class="event-filter-btn" data-filter="devops">DevOps (1)</button>
-                                <button class="event-filter-btn" data-filter="cyber">Cybersecurity (1)</button>
-                            </div>
+                    </div>
+
+                    <!-- 2. DOWN: Category Filter Pills (In One Clean Line) -->
+                    <div class="events-category-nav-wrap" id="upcomingCategoryFilter">
+                        <div class="event-filter-nav m-0 d-flex justify-content-center flex-wrap gap-2">
+                            <button class="event-filter-btn active" data-filter="all">All (6)</button>
+                            <button class="event-filter-btn" data-filter="hr">HR &amp; Talent (4)</button>
+                            <button class="event-filter-btn" data-filter="devops">DevOps (1)</button>
+                            <button class="event-filter-btn" data-filter="cyber">Cybersecurity (1)</button>
                         </div>
                     </div>
                 </div>
@@ -690,11 +691,11 @@
         if (tab === 'all') {
             upSection.style.display = 'block';
             pastSection.style.display = 'block';
-            if (catFilter) catFilter.style.display = 'inline-flex';
+            if (catFilter) catFilter.style.display = 'flex';
         } else if (tab === 'upcoming') {
             upSection.style.display = 'block';
             pastSection.style.display = 'none';
-            if (catFilter) catFilter.style.display = 'inline-flex';
+            if (catFilter) catFilter.style.display = 'flex';
         } else if (tab === 'past') {
             upSection.style.display = 'none';
             pastSection.style.display = 'block';
