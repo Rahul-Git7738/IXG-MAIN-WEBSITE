@@ -138,38 +138,41 @@
         <section class="ptb-80">
             <div class="container">
 
-                <!-- Interactive Main Tab Switcher -->
-                <div class="events-master-tab-bar">
-                    <button class="events-master-tab-btn active" data-tab="all" onclick="setEventsTab('all')">
-                        <i class="ri-apps-2-line"></i> All Events (12)
-                    </button>
-                    <button class="events-master-tab-btn" data-tab="upcoming" onclick="setEventsTab('upcoming')">
-                        <i class="ri-calendar-event-line"></i> Upcoming Events (6)
-                    </button>
-                    <button class="events-master-tab-btn" data-tab="past" onclick="setEventsTab('past')">
-                        <i class="ri-history-line"></i> Past Events Archive (6)
-                    </button>
+                <!-- Master Events Toolbar Row -->
+                <div class="events-toolbar-wrap mb-5">
+                    <div class="row align-items-center g-3">
+                        <div class="col-xl-7 col-lg-7 col-12">
+                            <div class="events-master-tab-bar">
+                                <button class="events-master-tab-btn active" data-tab="all" onclick="setEventsTab('all')">
+                                    <i class="ri-apps-2-line"></i> All Events (12)
+                                </button>
+                                <button class="events-master-tab-btn" data-tab="upcoming" onclick="setEventsTab('upcoming')">
+                                    <i class="ri-calendar-event-line"></i> Upcoming Events (6)
+                                </button>
+                                <button class="events-master-tab-btn" data-tab="past" onclick="setEventsTab('past')">
+                                    <i class="ri-history-line"></i> Past Events Archive (6)
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-5 col-12 text-lg-end text-start">
+                            <div class="event-filter-nav d-inline-flex m-0" id="upcomingCategoryFilter">
+                                <button class="event-filter-btn active" data-filter="all">All (6)</button>
+                                <button class="event-filter-btn" data-filter="hr">HR &amp; Talent (4)</button>
+                                <button class="event-filter-btn" data-filter="devops">DevOps (1)</button>
+                                <button class="event-filter-btn" data-filter="cyber">Cybersecurity (1)</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 1. UPCOMING EVENTS BLOCK -->
                 <div id="upcoming-events-section" class="mb-5 pb-4">
-                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-                        <div>
-                            <span class="badge mb-2 px-3 py-2" style="background: linear-gradient(135deg, #c43c65, #ff5a8d); font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase;">
-                                2026 Flagship Calendar
-                            </span>
-                            <h2 style="font-size: 32px; font-weight: 800; color: #ffffff; margin: 0;">Upcoming Summits &amp; Conclaves</h2>
-                        </div>
-                        
-                        <!-- Category Filter within Upcoming -->
-                        <div class="event-filter-nav m-0">
-                            <button class="event-filter-btn active" data-filter="all">All (6)</button>
-                            <button class="event-filter-btn" data-filter="hr">HR &amp; Talent (4)</button>
-                            <button class="event-filter-btn" data-filter="devops">DevOps (1)</button>
-                            <button class="event-filter-btn" data-filter="cyber">Cybersecurity (1)</button>
-                        </div>
+                    <div class="mb-4">
+                        <span class="badge mb-2 px-3 py-2" style="background: linear-gradient(135deg, #c43c65, #ff5a8d); font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; border-radius: 20px;">
+                            2026 Flagship Calendar
+                        </span>
+                        <h2 style="font-size: 32px; font-weight: 800; color: #ffffff; margin: 0;">Upcoming Summits &amp; Conclaves</h2>
                     </div>
-
                     <div class="row g-4" id="upcomingEventsGrid">
                         
                         <!-- Upcoming Event 1 -->
@@ -682,16 +685,20 @@
         });
         const upSection = document.getElementById('upcoming-events-section');
         const pastSection = document.getElementById('past-events-section');
+        const catFilter = document.getElementById('upcomingCategoryFilter');
         
         if (tab === 'all') {
             upSection.style.display = 'block';
             pastSection.style.display = 'block';
+            if (catFilter) catFilter.style.display = 'inline-flex';
         } else if (tab === 'upcoming') {
             upSection.style.display = 'block';
             pastSection.style.display = 'none';
+            if (catFilter) catFilter.style.display = 'inline-flex';
         } else if (tab === 'past') {
             upSection.style.display = 'none';
             pastSection.style.display = 'block';
+            if (catFilter) catFilter.style.display = 'none';
         }
     }
 
