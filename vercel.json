@@ -4,6 +4,7 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/about-us", "destination": "/about-us.html" },
     { "source": "/about", "destination": "/about-us.html" },
+    { "source": "/our-events", "destination": "/our-events.html" },
     { "source": "/upcoming-events", "destination": "/upcoming-events.html" },
     { "source": "/past-events", "destination": "/past-events.html" },
     { "source": "/our-expertise", "destination": "/our-expertise.html" },
