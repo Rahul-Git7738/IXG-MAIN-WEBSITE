@@ -187,7 +187,7 @@
                 <!-- Statistics Bar -->
                 <div class="fame-stats-row">
                     <div class="fame-stat-item">
-                        <div class="fame-stat-num">35+</div>
+                        <div class="fame-stat-num" id="fameTotalStatsNum">37+</div>
                         <div class="fame-stat-label">Curated<br>Moments</div>
                     </div>
                     <div class="fame-stat-divider"></div>
@@ -216,17 +216,22 @@
                     <button class="fame-filter-btn active" data-filter="all">
                         <i class="ri-grid-fill"></i>
                         <span>All Moments</span>
-                        <span class="count-badge">33</span>
+                        <span class="count-badge" id="allCountBadge">37</span>
                     </button>
                     <button class="fame-filter-btn" data-filter="photo">
                         <i class="ri-camera-3-fill"></i>
                         <span>Event Photos</span>
-                        <span class="count-badge">31</span>
+                        <span class="count-badge" id="photoCountBadge">35</span>
+                    </button>
+                    <button class="fame-filter-btn" data-filter="awards">
+                        <i class="ri-trophy-fill"></i>
+                        <span>Awards &amp; Honours</span>
+                        <span class="count-badge" id="awardsCountBadge">4</span>
                     </button>
                     <button class="fame-filter-btn" data-filter="video">
                         <i class="ri-film-fill"></i>
                         <span>Summit Videos</span>
-                        <span class="count-badge">2</span>
+                        <span class="count-badge" id="videoCountBadge">2</span>
                     </button>
                     <button class="fame-filter-btn" data-filter="dubai">
                         <i class="ri-map-pin-2-fill"></i>
@@ -301,6 +306,102 @@
 
                 <!-- Masonry Container -->
                 <div class="fame-masonry" id="fameMasonryGrid">
+
+                    <!-- Award Frame 1: Executive Excellence Award -->
+                    <div class="fame-card photo-card" data-category="photo awards dubai">
+                        <div class="fame-media-box">
+                            <span class="fame-badge-type award"><i class="ri-trophy-fill"></i> AWARDS</span>
+                            <span class="fame-badge-loc"><i class="ri-map-pin-line"></i> Dubai, UAE</span>
+                            <a href="assets/img/trophy/1.png" data-fancybox="wall-of-fame" data-caption="Executive Excellence &amp; Visionary Leadership Award &mdash; Honoring transformative enterprise leadership and corporate innovation at the Dubai Executive Summit.">
+                                <img src="assets/img/trophy/1.png" alt="Executive Excellence &amp; Visionary Leadership Award" loading="lazy" decoding="async">
+                                <div class="fame-overlay-zoom">
+                                    <div class="fame-zoom-icon"><i class="ri-zoom-in-line"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="fame-card-body">
+                            <span class="fame-card-tag">Excellence Recognition</span>
+                            <h4 class="fame-card-title">Executive Excellence &amp; Visionary Leadership Award</h4>
+                            <div class="fame-card-meta">
+                                <span><i class="ri-award-line"></i> Dubai Conclave</span>
+                                <a href="assets/img/trophy/1.png" data-fancybox="wall-of-fame" data-caption="Executive Excellence &amp; Visionary Leadership Award" class="fame-card-link">
+                                    View Full Size <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award Frame 2: Talent Acquisition Vanguard -->
+                    <div class="fame-card photo-card" data-category="photo awards india">
+                        <div class="fame-media-box">
+                            <span class="fame-badge-type award"><i class="ri-trophy-fill"></i> AWARDS</span>
+                            <span class="fame-badge-loc"><i class="ri-map-pin-line"></i> New Delhi, India</span>
+                            <a href="assets/img/trophy/2.png" data-fancybox="wall-of-fame" data-caption="Pioneering Innovation in Talent Acquisition Award &mdash; Celebrating breakthroughs in executive recruiting, employer branding, and people analytics.">
+                                <img src="assets/img/trophy/2.png" alt="Pioneering Innovation in Talent Acquisition Award" loading="lazy" decoding="async">
+                                <div class="fame-overlay-zoom">
+                                    <div class="fame-zoom-icon"><i class="ri-zoom-in-line"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="fame-card-body">
+                            <span class="fame-card-tag">HR Innovation Trophy</span>
+                            <h4 class="fame-card-title">Pioneering Innovation in Talent Acquisition Award</h4>
+                            <div class="fame-card-meta">
+                                <span><i class="ri-award-line"></i> New Delhi Forum</span>
+                                <a href="assets/img/trophy/2.png" data-fancybox="wall-of-fame" data-caption="Pioneering Innovation in Talent Acquisition Award" class="fame-card-link">
+                                    View Full Size <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award Frame 3: Enterprise Cloud & DevOps -->
+                    <div class="fame-card photo-card" data-category="photo awards india">
+                        <div class="fame-media-box">
+                            <span class="fame-badge-type award"><i class="ri-trophy-fill"></i> AWARDS</span>
+                            <span class="fame-badge-loc"><i class="ri-map-pin-line"></i> Bengaluru, India</span>
+                            <a href="assets/img/trophy/3.png" data-fancybox="wall-of-fame" data-caption="Enterprise Cloud &amp; DevOps Transformation Trophy &mdash; Recognizing engineering excellence, automated pipelines, and cloud reliability engineering.">
+                                <img src="assets/img/trophy/3.png" alt="Enterprise Cloud &amp; DevOps Transformation Trophy" loading="lazy" decoding="async">
+                                <div class="fame-overlay-zoom">
+                                    <div class="fame-zoom-icon"><i class="ri-zoom-in-line"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="fame-card-body">
+                            <span class="fame-card-tag">Tech Architecture Honor</span>
+                            <h4 class="fame-card-title">Enterprise Cloud &amp; DevOps Transformation Trophy</h4>
+                            <div class="fame-card-meta">
+                                <span><i class="ri-award-line"></i> Bengaluru Summit</span>
+                                <a href="assets/img/trophy/3.png" data-fancybox="wall-of-fame" data-caption="Enterprise Cloud &amp; DevOps Transformation Trophy" class="fame-card-link">
+                                    View Full Size <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award Frame 4: CyberShield Defense -->
+                    <div class="fame-card photo-card" data-category="photo awards dubai">
+                        <div class="fame-media-box">
+                            <span class="fame-badge-type award"><i class="ri-trophy-fill"></i> AWARDS</span>
+                            <span class="fame-badge-loc"><i class="ri-map-pin-line"></i> Riyadh, KSA</span>
+                            <a href="assets/img/trophy/4.png" data-fancybox="wall-of-fame" data-caption="CyberShield Executive Security Vanguard Award &mdash; Honoring CISO leadership, threat intelligence excellence, and zero-trust perimeter defense.">
+                                <img src="assets/img/trophy/4.png" alt="CyberShield Executive Security Vanguard Award" loading="lazy" decoding="async">
+                                <div class="fame-overlay-zoom">
+                                    <div class="fame-zoom-icon"><i class="ri-zoom-in-line"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="fame-card-body">
+                            <span class="fame-card-tag">Cyber Defense Vanguard</span>
+                            <h4 class="fame-card-title">CyberShield Executive Security Vanguard Award</h4>
+                            <div class="fame-card-meta">
+                                <span><i class="ri-award-line"></i> Riyadh Conclave</span>
+                                <a href="assets/img/trophy/4.png" data-fancybox="wall-of-fame" data-caption="CyberShield Executive Security Vanguard Award" class="fame-card-link">
+                                    View Full Size <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Video Frame 1 -->
                     <div class="fame-card video-card" data-category="video dubai">
